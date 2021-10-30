@@ -1,0 +1,41 @@
+body {
+    margin: 0;     
+}
+.heading {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+}
+#map {
+    margin: auto;
+    height: 91vh;
+    width: 95vw;
+    border-radius: 5px;
+}
+
+.form {
+    position: absolute;
+    top: 82vh;
+    left: 43%;
+    z-index: 1;
+    margin: auto;
+    width: max-content;
+    height: auto;
+    background: repeating-radial-gradient(rgba(82, 216, 127, 0.5),#53d7e0);
+}
+
+#select{
+    font-size: medium;
+    margin: 5px;
+    margin-left: 17px;
+}
+#select2{
+    font-size: medium;
+    margin: 5px;
+    
+}
+.form-button {
+    font-size: medium;
+    margin: 5px;
+    margin-left: 29px;
+}

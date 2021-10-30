@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Online stores">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet noreferrer' />
+    <title>Store Locator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet noreferrer" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css"> 
+    <script nonce="random123" src=""></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="heading">Store Locator</h1>            
+        </div>
+        
+        <div id="map"></div>
+
+        <div class="form" id="form-id">
+            <form method="GET" id="mapForm">
+                <ul>
+                    <li>
+                        <label for="distance">Radius</label>
+                        <select
+                            name="distance"
+                            id=select
+                            autocomplete=off
+                            required
+                        >
+                        <option value='5' selected="selected">5 Km</option>
+                        <option value='10'>10 Km</option>
+                        <option value='15'>15 Km</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="category">Category</label>
+                        <select
+                            name="category"
+                            id=select2
+                            autocomplete=off
+                            required
+                        >
+                        <option value='Apparels' selected="selected">Apparels</option>
+                        <option value='Grocery'>Grocery</option>
+                        <option value='Electronics'>Electronics</option>
+                        </select>
+                    </li>
+                    <li class="form-button">
+                        <button type="submit" >Show Stores</button>
+                    </li>
+                </ul>
+            </form>
+
+            <script src="js/map.js"></script>
+            <script>
+                $('#mapForm').submit(function(e){
+                    e.preventDefault();
+                    const formdata = $('#mapForm').serializeArray();
+                    var formdata1 = {};
+                    $(formdata).each(function(index, obj){
+                        formdata1[obj.name] = obj.value;
+                    });
+
+                    getStoresFromData(formdata1)               
+
+                })
+            </script>
+        </div>        
+    </div>   
+</body>
+</html>
